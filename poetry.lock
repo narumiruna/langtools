@@ -1174,25 +1174,6 @@ dev = ["pre-commit", "tox"]
 testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
-name = "pornhub-api"
-version = "0.3.0"
-description = ""
-optional = false
-python-versions = ">=3.8,<3.12"
-files = [
-    {file = "pornhub_api-0.3.0-py3-none-any.whl", hash = "sha256:9618986cafd4404f75416de203e6b134ef7162fa3de237f45031bc008ffa0a54"},
-    {file = "pornhub_api-0.3.0.tar.gz", hash = "sha256:e18c58bbda1b89c07cb40a3e020fde4e77eeec9a20c407064b5dae1f2dbc8345"},
-]
-
-[package.dependencies]
-pydantic = ">=1.4"
-requests = ">=2.23.0"
-
-[package.extras]
-aiohttp-backend = ["aiohttp (>=3.6.2)"]
-httpx-backend = ["httpx (>=0.23.1)"]
-
-[[package]]
 name = "py"
 version = "1.11.0"
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
@@ -1845,4 +1826,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.12"
-content-hash = "cef24481dcd0dbe1074cdf1fd9a4f2a9648abaaf79f3fdc3d655d72471cdce0e"
+content-hash = "7c03e6cf25d2d49c43d985ed1e5aa049469b66bc20365742134af8218ca8a156"
