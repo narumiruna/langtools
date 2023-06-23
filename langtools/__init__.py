@@ -1,4 +1,4 @@
 from .mortgage import LoanCalculator
 from .pornhub import PornHubSearch
-from .visa import VISAFXRate
+from .visa import ExchangeRateCalculator
 from .web_browser import WebBrowser

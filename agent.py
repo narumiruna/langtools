@@ -1,9 +1,12 @@
 from dotenv import load_dotenv
-from langchain.agents import AgentType, initialize_agent
+from langchain.agents import AgentType
+from langchain.agents import initialize_agent
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 
-from langtools import LoanCalculator, VISAFXRate, WebBrowser
+from langtools import ExchangeRateCalculator
+from langtools import LoanCalculator
+from langtools import WebBrowser
 
 
 def main():
@@ -11,7 +14,7 @@ def main():
     llm = ChatOpenAI(model_name="gpt-3.5-turbo-0613")
     tools = [
         WebBrowser(),
-        VISAFXRate(),
+        ExchangeRateCalculator(),
         LoanCalculator(),
     ]
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
