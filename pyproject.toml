@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "langtools"
+version = "0.1.0"
+description = ""
+authors = ["なるみ <toucans-cutouts0f@icloud.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+langchain = "^0.0.209"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
