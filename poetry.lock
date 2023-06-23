@@ -1608,6 +1608,20 @@ slack = ["slack-sdk"]
 telegram = ["requests"]
 
 [[package]]
+name = "twstock"
+version = "1.3.1"
+description = "Taiwan Stock Opendata with realtime - twstock"
+optional = false
+python-versions = ">=3"
+files = [
+    {file = "twstock-1.3.1-py3-none-any.whl", hash = "sha256:bc2b33cd467e6f52538a7227256bf8f9cb214dac3f85e9f8ce386b7cf6061b19"},
+    {file = "twstock-1.3.1.tar.gz", hash = "sha256:2d5114c9c992990f6523489d26136c5e2b2f1c81fd09bb61e386b5166189fdf2"},
+]
+
+[package.dependencies]
+requests = "*"
+
+[[package]]
 name = "typing-extensions"
 version = "4.6.3"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -1831,4 +1845,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.12"
-content-hash = "3d21aa8d39d4619ae826d12debb7b62175e1cc4be53ca3a4a273f2fb7eb64551"
+content-hash = "cef24481dcd0dbe1074cdf1fd9a4f2a9648abaaf79f3fdc3d655d72471cdce0e"
