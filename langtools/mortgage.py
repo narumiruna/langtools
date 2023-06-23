@@ -9,25 +9,23 @@ from pydantic import BaseModel
 from pydantic import Field
 
 
-class TermUnitEnum(str, Enum):
+class TermUnit(str, Enum):
     days = 'days'
     months = 'months'
     years = 'years'
 
 
-class CompoundedEnum(str, Enum):
+class Compounded(str, Enum):
     daily = 'daily'
     monthly = 'monthly'
     annually = 'annually'
 
 
-class LoanInput(BaseModel):
+class LoanCalculatorInput(BaseModel):
     principal: str = Field(description='The original sum of money borrowed.')
     interest: str = Field(description='The amount charged by lender for use of the assets.')
     term: str = Field(description='The lifespan of the loan.')
-    term_unit: TermUnitEnum = Field(description='Unit for the lifespan of the loan.')
-    # compounded: str = Field(description='Frequency that interest is compounded')
-    # currency: str = Field(description='Set the currency symbol for use with summarize')
+    term_unit: TermUnit = Field(description='Unit for the lifespan of the loan.')
 
 
 def summarize(loan: Loan) -> str:
@@ -63,10 +61,9 @@ class LoanCalculator(BaseTool):
                    'Input should be the principal, interest, and term. '
                    'The output will be a summary of the loan.')
 
-    args_schema: Optional[Type[BaseModel]] = LoanInput
+    args_schema: Optional[Type[BaseModel]] = LoanCalculatorInput
 
     def _run(self, principal: str, interest: str, term: str, term_unit: str) -> str:
-
         loan = Loan(float(principal), parse_interest(interest), int(term), term_unit)
         return summarize(loan)
 
