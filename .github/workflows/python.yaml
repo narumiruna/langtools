@@ -2,12 +2,9 @@ name: Python
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
+    branches: ["main"]
 
 jobs:
   build:
@@ -15,26 +12,26 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.9", "3.10"]
-        poetry-version: ["1.5.1"]
+        python-version: [3.9]
+        poetry-version: [1.5.1]
 
     steps:
-    - uses: actions/checkout@v3
-    
-    - uses: abatilo/actions-poetry@v2
-      with:
-        poetry-version: ${{ matrix.poetry-version }}
+      - uses: actions/checkout@v3
 
-    - uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
-        cache: poetry
+      - uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
 
-    - name: Install dependencies
-      run: poetry install
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: poetry
 
-    - name: Lint with flake8
-      run: poetry run flake8 -v
+      - name: Install dependencies
+        run: poetry install
 
-    - name: Test with pytest
-      run: poetry run pytest -v -s --disable-warnings
+      - name: Lint with flake8
+        run: poetry run flake8 -v
+
+      - name: Test with pytest
+        run: poetry run pytest -v -s --disable-warnings
