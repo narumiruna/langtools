@@ -87,8 +87,6 @@ class VISAFXRate(BaseTool):
                    'Input should be an amount, a currency to convert from, and a currency to convert to. '
                    'The output will be the converted amount and the FX rate.')
 
-    max_chars: Optional[int] = 4000
-    max_videos: Optional[int] = 5
     args_schema: Optional[Type[BaseModel]] = VISAFXRateInput
 
     def _run(self, amount: str, from_curr: str, to_curr: str) -> str:
