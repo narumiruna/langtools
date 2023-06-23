@@ -17,4 +17,4 @@ class WebBrowser(BaseTool):
         return soup.text.replace('\n', '').strip()[:self.max_chars]
 
     async def _arun(self, url: str) -> str:
-        raise NotImplementedError("This tool does not support async")
+        return self._run(url)

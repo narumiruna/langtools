@@ -1,9 +1,12 @@
 from enum import Enum
-from typing import Optional, Type, Union
+from typing import Optional
+from typing import Type
+from typing import Union
 
 from langchain.tools import BaseTool
 from mortgage import Loan
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
+from pydantic import Field
 
 
 class TermUnitEnum(str, Enum):
@@ -67,5 +70,5 @@ class LoanCalculator(BaseTool):
         loan = Loan(float(principal), parse_interest(interest), int(term), term_unit)
         return summarize(loan)
 
-    async def _arun(self, *args, **kwargs) -> str:
-        raise NotImplementedError("This tool does not support async")
+    async def _arun(self, principal: str, interest: str, term: str, term_unit: str) -> str:
+        return self._run(principal, interest, term, term_unit)

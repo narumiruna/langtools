@@ -1,11 +1,13 @@
 from enum import Enum
-from typing import Optional, Type
+from typing import Optional
+from typing import Type
 
 from langchain.tools import BaseTool
 from pornhub_api import PornhubApi
 from pornhub_api.exceptions import NoVideoError
 from pornhub_api.schemas.video import Video
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
+from pydantic import Field
 
 
 class OrderingEnum(str, Enum):
@@ -55,5 +57,5 @@ class PornHubSearch(BaseTool):
         docs = [to_string(video) for video in videos]
         return '\n\n'.join(docs)[:self.max_chars]
 
-    async def _arun(self, url: str) -> str:
-        raise NotImplementedError("This tool does not support async")
+    async def _arun(self, query: str, ordering: str) -> str:
+        return self._run(query, ordering)
