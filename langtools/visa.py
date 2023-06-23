@@ -16,7 +16,8 @@ class ExchangeRateCalculatorInput(BaseModel):
 class ExchangeRateCalculator(BaseTool):
     """"Exchange Rate Calculator
 
-    Use the converter below to get an indication of the rate you may receive when using your Visa card to pay while traveling internationally.
+    Use the converter below to get an indication of the rate you may receive
+    when using your Visa card to pay while traveling internationally.
     """
 
     name = "calculate_exchange_rate"
