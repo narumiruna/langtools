@@ -31,10 +31,10 @@ jobs:
         cache: poetry
 
     - name: Install dependencies
-      run: pip install .
+      run: poetry install
 
     - name: Lint with flake8
-      run: flake8 -v
+      run: poetry run flake8 -v
 
     - name: Test with pytest
-      run: pytest -v -s --disable-warnings
+      run: poetry run pytest -v -s --disable-warnings
