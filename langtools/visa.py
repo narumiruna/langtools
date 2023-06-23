@@ -92,14 +92,11 @@ class VISAFXRate(BaseTool):
     def _run(self, amount: str, from_curr: str, to_curr: str) -> str:
         # the from_curr and to_curr are reversed in the API
         r = get_visa_fx_rate(amount, from_curr=to_curr, to_curr=from_curr)
-
-        s = f'Amount: {amount}\n'
-        s += f'From: {from_curr}\n'
-        s += f'To: {to_curr}\n'
-        s += f'Converted Amount: {r.convertedAmount}\n'
-        s += f'FX Rate: {r.fxRateWithAdditionalFee}\n'
-
-        return s
+        return (f'Amount: {amount}\n'
+                f'From: {from_curr}\n'
+                f'To: {to_curr}\n'
+                f'Converted Amount: {r.convertedAmount}\n'
+                f'FX Rate: {r.fxRateWithAdditionalFee}\n')
 
     async def _arun(self, url: str) -> str:
         raise NotImplementedError("This tool does not support async")
