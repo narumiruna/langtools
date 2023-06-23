@@ -665,6 +665,20 @@ files = [
 ]
 
 [[package]]
+name = "mortgage"
+version = "1.0.5"
+description = "Mortgage Calculator"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "mortgage-1.0.5-py3-none-any.whl", hash = "sha256:d1af39b28d722b06e98087535ef466d9f3422726b268a477f7b4b80d349035e6"},
+    {file = "mortgage-1.0.5.tar.gz", hash = "sha256:18fcb356c631e9cc27fa7019f6ff6021707e34b9ce3a3b7dc815661288709921"},
+]
+
+[package.extras]
+develop = ["bump2version (>=0.5.10,<1.0.0)", "pre-commit (>=1.16.0,<2.0.0)", "pytest (>=3.2.1,<4.0.0)", "pytest-cov (>=2.5.1,<3.0.0)", "recommonmark (>=0.4.0,<1.0.0)", "sphinx (>=1.7.4,<2.0.0)", "sphinx-autodoc-typehints (>=1.3.0,<2.0.0)", "tox (>=3.0.0,<4.0.0)"]
+
+[[package]]
 name = "multidict"
 version = "6.0.4"
 description = "multidict implementation"
@@ -1473,4 +1487,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.12"
-content-hash = "fd191efdd4af6b88e04b58fbe9eaae7859cbb538135fc6de0c9183148f73f629"
+content-hash = "13a659da58218996c8c4f461b600395bb9c900566b85b05cebfb9f8c28da5a9e"
