@@ -6,6 +6,7 @@ from langchain.memory import ConversationBufferMemory
 
 from langtools import ExchangeRateCalculator
 from langtools import LoanCalculator
+from langtools import QueryTicker
 from langtools import WebBrowser
 
 
@@ -16,6 +17,7 @@ def main():
         WebBrowser(),
         ExchangeRateCalculator(),
         LoanCalculator(),
+        QueryTicker(),
     ]
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
     agent = initialize_agent(tools=tools, llm=llm, agent=AgentType.OPENAI_FUNCTIONS, memory=memory, verbose=True)
