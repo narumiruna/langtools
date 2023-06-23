@@ -1,0 +1,40 @@
+name: Python
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.9, 3.10]
+        poetry-version: [1.5.1]
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - uses: abatilo/actions-poetry@v2
+      with:
+        poetry-version: ${{ matrix.poetry-version }}
+
+    - uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: poetry
+
+    - name: Install dependencies
+      run: pip install .
+
+    - name: Lint with flake8
+      run: flake8 -v
+
+    - name: Test with pytest
+      run: pytest -v -s --disable-warnings
