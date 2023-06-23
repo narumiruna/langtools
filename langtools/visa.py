@@ -33,8 +33,8 @@ class ExchangeRateCalculator(BaseTool):
         return (f'Amount: {amount}\n'
                 f'From: {from_curr}\n'
                 f'To: {to_curr}\n'
-                f'Converted Amount: {r.convertedAmount}\n'
-                f'FX Rate: {r.fxRateWithAdditionalFee}\n')
+                f'Converted amount: {r.convertedAmount}\n'
+                f'Exchange rate: {r.fxRateWithAdditionalFee}\n')
 
     async def _arun(self, url: str) -> str:
         raise NotImplementedError("This tool does not support async")
